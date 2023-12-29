@@ -1,11 +1,13 @@
 /**************************
     Google Fonts
 ***************************/
+
 @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Lexend+Deca&display=swap");
 
 /**************************
     CSS Reset
 ***************************/
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -15,6 +17,7 @@
 /**************************
     Variables
 ***************************/
+
 :root {
   /* colors */
   --primary-bright-orange: hsl(31, 77%, 52%);
@@ -26,12 +29,138 @@
   /* Fonts */
   --primary-font: "Big Shoulders Display";
   --secondary-font: "Lexend Deca";
+  --title-font-size: 2.5rem;
+  --text-font-size: 1rem;
+
+  /* Border; */
+  --border-radius: 1rem;
 }
 
 /**************************
-    Global Settings
+    Global Styles
 ***************************/
+
+body {
+  background-color: var(--neutral-transparent-white);
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  margin: 5rem 0;
+}
 
 /**************************
     Three Column Card Styles
+    Mobile up to 768px
 ***************************/
+
+/* Element Wrappers */
+
+/* Card Styles Group */
+
+.card {
+  display: flex;
+  block-size: 35rem;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  row-gap: 2.5rem;
+  inline-size: 90%;
+  margin-inline: auto;
+  padding-inline: 2rem;
+}
+
+/* Card Styles Individual */
+
+.sedans-card {
+  background-color: var(--primary-bright-orange);
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.suvs-card {
+  background-color: var(--primary-dark-cyan);
+}
+
+.luxury-card {
+  background-color: var(--primary-very-dark-cyan);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+
+/* Card Font Styles Group */
+
+.card-title {
+  font-family: var(--primary-font);
+  font-size: var(--title-font-size);
+  color: var(--neutral-very-light-gray);
+}
+
+.card-desc {
+  font-family: var(--secondary-font);
+  font-size: var(--text-font-size);
+  color: var(--neutral-very-light-gray);
+  line-height: 2rem;
+}
+
+/* Card Btn Styles Group */
+
+.btn {
+  background-color: var(--neutral-very-light-gray);
+  padding: 1rem 2rem;
+  border: 0;
+  border-radius: 2rem;
+  font-family: var(--secondary-font);
+  font-size: var(--text-font-size);
+}
+
+/* Card Styles Individual */
+
+.btn-sedans {
+  color: var(--primary-bright-orange);
+}
+
+.btn-suvs {
+  color: var(--primary-dark-cyan);
+}
+
+.btn-luxury {
+  color: var(--primary-very-dark-cyan);
+}
+
+/**************************
+    Three Column Card Styles
+    Starting from 768px
+***************************/
+
+@media (min-width: 768px) {
+  /* Switch to a 3 column layout */
+
+  .cards-wrapper {
+    display: flex;
+    width: 95%;
+  }
+
+  .card {
+    height: 24rem;
+    row-gap: 1.5rem;
+  }
+
+  .card-desc {
+    font-size: 0.8rem;
+    line-height: 1.5rem;
+  }
+
+  .sedans-card {
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
+  }
+
+  .luxury-card {
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  }
+}
+
+/* Starting from 1024px */
+
+@media screen and (min-width: 1024px) {
+  .cards-wrapper {
+    width: 70%;
+  }
+}
